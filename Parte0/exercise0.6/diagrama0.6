@@ -1,0 +1,15 @@
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/new_note_spa  (content, date)
+    
+   
+    activate server
+    server-->>browser: HTTP 201 created (JSON)
+    deactivate server
+    browser->>browser: Render the new note (using JavaScript)
+    
+     Note right of browser: The browser stays on the same page, no redirection
+
